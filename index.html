@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Burn-up Forecasts User Guide</title>
+    <meta
+      name="description"
+      content="A quick customer guide for installing, configuring, and reading the Burn-up Forecasts Jira dashboard gadget."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Jira Dashboard Gadget Guide</p>
+        <h1>Burn-up Forecasts</h1>
+        <p class="hero__lede">
+          A quick guide to a burn-up chart: how much work is done, how much is still in scope, and when the team may finish.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#get-started">Get Started</a>
+          <a class="button button--secondary" href="#screenshots">View Screenshots</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section--intro">
+        <div class="section__heading">
+          <p class="eyebrow">What It Does</p>
+          <h2>See progress against the full amount of work</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Burn-up chart</h3>
+            <p>
+              A burn-up chart compares completed work with the total planned work so you can see whether delivery is keeping up.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Forecast options</h3>
+            <p>
+              You can choose a simple best or average or worst-case view, or a Monte Carlo forecast with confidence ranges.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Flexible inputs</h3>
+            <p>
+              Scope and past delivery can come from manual values or from a saved Jira search using JQL.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="get-started">
+        <div class="section__heading">
+          <p class="eyebrow">Setup</p>
+          <h2>Add the gadget to a Jira dashboard</h2>
+        </div>
+        <ol class="steps">
+          <li>Open the Jira dashboard where you want to show progress and forecast information.</li>
+          <li>Add the Burn-up Forecasts gadget to the dashboard.</li>
+          <li>Open the gadget configuration screen.</li>
+          <li>Set how the chart should behave and where the data should come from.</li>
+          <li>Save and review the chart and finish-date guidance.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <p class="eyebrow">Configuration</p>
+          <h2>Use two simple sections to set up the gadget</h2>
+        </div>
+        <div class="two-column">
+          <article class="panel">
+            <h3>Setup</h3>
+            <ul class="feature-list">
+              <li>Text shown above the chart</li>
+              <li>Optional start date for projected finish dates</li>
+              <li>Forecast style: simple or Monte Carlo</li>
+              <li>Measure work by issue count or story points</li>
+              <li>Choose how many intervals to show and how long each one is</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Forecast Data</h3>
+            <ul class="feature-list">
+              <li>Set scope manually or derive it from JQL</li>
+              <li>Use manual delivery history or JQL-derived history</li>
+              <li>Preview the last three completed intervals when JQL is used</li>
+              <li>Validation appears only when you try to save</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <p class="eyebrow">Reading The Output</p>
+          <h2>Read the chart in three parts</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Scope line</h3>
+            <p>
+              The horizontal line shows the full amount of work to complete, either as issue count or story points.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Forecast lines</h3>
+            <p>
+              The forecast lines show likely progress based on past delivery, using either manual values or recent JQL history.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Completion guidance</h3>
+            <p>
+              The text under the chart explains when each forecast reaches the scope line and, if set, the projected finish date.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--highlight">
+        <div class="section__heading">
+          <p class="eyebrow">Key Caveats</p>
+          <h2>Things to note</h2>
+        </div>
+        <ul class="feature-list feature-list--wide">
+          <li>Very broad JQL searches can make the gadget slower.</li>
+          <li>If any of the last three completed intervals has no done work, JQL history cannot produce forecast lines.</li>
+          <li>Projected finish dates use the viewer's local timezone and a five-day working week.</li>
+          <li>Validation messages appear only after the first save attempt.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="screenshots">
+        <div class="section__heading">
+          <p class="eyebrow">Screenshots</p>
+          <h2>Gadget Views</h2>
+        </div>
+        <div class="shot-grid">
+          <figure class="shot-card">
+            <img
+              class="shot-card__image"
+              src="assets/screenshots/dashboard-gadget-view.png"
+              alt="Screenshot showing the burn-up forecast gadget displayed on a Jira dashboard."
+            >
+            <figcaption>The gadget as it appears in the Jira dashboard gadget list.</figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img
+              class="shot-card__image"
+              src="assets/screenshots/setup-configuration.png"
+              alt="Screenshot showing the Setup section of the gadget configuration form."
+            >
+            <figcaption>Setup controls the chart basics, start date, forecasting method and interval settings.</figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img
+              class="shot-card__image"
+              src="assets/screenshots/forecast-data-configuration.png"
+              alt="Screenshot showing the Forecast Data section of the gadget configuration form."
+            >
+            <figcaption>Forecast Data sets scope, chooses the history source, and shows the JQL-based preview.</figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img
+              class="shot-card__image"
+              src="assets/screenshots/jql-history-preview.png"
+              alt="Screenshot showing the JQL history preview area."
+            >
+            <figcaption>The JQL preview shows what the search found and which recent intervals will feed the forecast.</figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img
+              class="shot-card__image"
+              src="assets/screenshots/forecast-example.png"
+              alt="Screenshot showing an example of the completed burn-up forecast chart."
+            >
+            <figcaption>The finished chart shows the scope line, forecast paths, and finish guidance.</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

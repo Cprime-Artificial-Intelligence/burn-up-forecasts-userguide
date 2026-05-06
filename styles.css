@@ -1,0 +1,335 @@
+:root {
+  --page-bg: #fbfbf8;
+  --paper: rgba(255, 255, 255, 0.95);
+  --paper-strong: #ffffff;
+  --ink: #090909;
+  --muted: #545454;
+  --accent: #f3a04d;
+  --accent-strong: #db8840;
+  --signal: #d7ef1f;
+  --signal-soft: rgba(215, 239, 31, 0.18);
+  --line: rgba(9, 9, 9, 0.08);
+  --shadow: 0 24px 54px rgba(20, 20, 20, 0.1);
+  --radius-lg: 32px;
+  --radius-md: 24px;
+  --radius-sm: 18px;
+  --content-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--page-bg);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 16rem;
+  left: -4rem;
+  width: 22rem;
+  height: 32rem;
+  background-image: radial-gradient(circle, rgba(9, 9, 9, 0.18) 0 1.6px, transparent 1.7px);
+  background-size: 22px 22px;
+  opacity: 0.28;
+  transform: rotate(-11deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto -22vw 3rem auto;
+  width: 70vw;
+  height: 40rem;
+  background: linear-gradient(135deg, #d8ef1f 0%, #ffe14a 74%);
+  clip-path: polygon(20% 44%, 100% 0, 100% 100%, 58% 100%);
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.hero {
+  padding: 2.5rem 1.5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__content,
+main {
+  width: min(calc(100% - 2rem), var(--content-width));
+  margin: 0 auto;
+}
+
+.hero__content {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 3.8rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__content::after {
+  content: "";
+  position: absolute;
+  inset: 8rem 9% auto auto;
+  width: min(58vw, 48rem);
+  height: min(32vw, 24rem);
+  background: linear-gradient(135deg, rgba(215, 239, 31, 0.92), rgba(255, 225, 74, 0.96));
+  clip-path: polygon(0 58%, 100% 0, 100% 100%, 36% 100%);
+  z-index: -1;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: #6d6d6d;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+h1 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: clamp(4rem, 9vw, 7.6rem);
+  max-width: 8ch;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  max-width: 12ch;
+  letter-spacing: -0.035em;
+}
+
+h3 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: 1.55rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+p,
+li,
+figcaption {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.hero__lede {
+  max-width: 49rem;
+  margin: 1.8rem 0 0;
+  color: var(--muted);
+  font-size: 1.24rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.button--primary {
+  background: var(--accent);
+  color: #fffdf9;
+  box-shadow: 0 12px 28px rgba(243, 160, 77, 0.38);
+}
+
+.button--secondary {
+  border-color: rgba(9, 9, 9, 0.18);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+main {
+  padding-bottom: 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  margin-top: 1.2rem;
+  padding: 2.4rem 0 1.2rem;
+}
+
+.section__heading {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 1.75rem;
+}
+
+.section--intro {
+  margin-top: -0.4rem;
+}
+
+.card-grid,
+.shot-grid,
+.two-column {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card-grid,
+.shot-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.shot-grid {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  align-items: start;
+}
+
+.two-column {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card,
+.panel,
+.shot-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.card,
+.panel {
+  padding: 1.7rem;
+}
+
+.card {
+  min-height: 100%;
+}
+
+.steps {
+  margin: 0;
+  padding: 2rem 2.2rem 2rem 3rem;
+  display: grid;
+  gap: 0.65rem;
+  max-width: 52rem;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.feature-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.feature-list--wide {
+  max-width: 56rem;
+}
+
+.section--highlight {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 252, 223, 0.92));
+  border: 1px solid rgba(9, 9, 9, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2.4rem;
+}
+
+.shot-card {
+  margin: 0;
+  padding: 1rem;
+  align-self: start;
+}
+
+.shot-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(9, 9, 9, 0.1);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.shot-card figcaption {
+  margin-top: 0.9rem;
+  color: var(--muted);
+}
+
+.supporting-note {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.supporting-note a {
+  color: var(--accent-strong);
+}
+
+@media (max-width: 720px) {
+  body::before,
+  body::after,
+  .hero__content::after {
+    opacity: 0.7;
+  }
+
+  .hero {
+    padding-top: 1.5rem;
+  }
+
+  .hero__content {
+    padding: 3rem 0 1rem;
+  }
+
+  .section--highlight {
+    padding: 1.5rem;
+  }
+
+  .steps {
+    padding: 1.4rem 1.4rem 1.4rem 2.2rem;
+  }
+
+  p,
+  li,
+  figcaption {
+    font-size: 1rem;
+  }
+}
