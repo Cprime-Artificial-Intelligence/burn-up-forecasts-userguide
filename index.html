@@ -41,13 +41,13 @@
           <article class="card">
             <h3>Forecast options</h3>
             <p>
-              You can choose a simple best or average or worst-case view, or a Monte Carlo forecast with confidence ranges.
+              Choose the classic best, average, and worst-case view, or switch to Monte Carlo mode for Optimistic (P25), Likely (P50), and Conservative (P75) confidence lines based on 1,000 simulations.
             </p>
           </article>
           <article class="card">
             <h3>Flexible inputs</h3>
             <p>
-              Scope and past delivery can come from manual values or from a saved Jira search using JQL.
+              Scope and past delivery can come from manual values, a typed JQL query, or a saved Jira filter. Measure work by issue count or story points.
             </p>
           </article>
         </div>
@@ -70,15 +70,15 @@
       <section class="section">
         <div class="section__heading">
           <p class="eyebrow">Configuration</p>
-          <h2>Use two simple sections to set up the gadget</h2>
+          <h2>Use three sections to set up the gadget</h2>
         </div>
         <div class="two-column">
           <article class="panel">
             <h3>Setup</h3>
             <ul class="feature-list">
               <li>Text shown above the chart</li>
-              <li>Optional start date for projected finish dates</li>
-              <li>Forecast style: simple or Monte Carlo</li>
+              <li>Optional start date for projected finish dates and actuals overlays</li>
+              <li>Forecast Method: Classic (Best, Average, and Worst Case) or Monte Carlo</li>
               <li>Measure work by issue count or story points</li>
               <li>Choose how many intervals to show and how long each one is</li>
             </ul>
@@ -86,10 +86,18 @@
           <article class="panel">
             <h3>Forecast Data</h3>
             <ul class="feature-list">
-              <li>Set scope manually or derive it from JQL</li>
-              <li>Use manual delivery history or JQL-derived history</li>
-              <li>Preview the last three completed intervals when JQL is used</li>
+              <li>Set scope manually, type a JQL query, or pick a saved Jira filter</li>
+              <li>Use manual delivery history or automatically calculated history from the last three completed intervals</li>
+              <li>Preview matched work item counts and story points before saving when a query is used</li>
               <li>Validation appears only when you try to save</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Actuals Overlay</h3>
+            <ul class="feature-list">
+              <li><strong>Plot Actual Scope</strong> — shows cumulative scope growth from issue created dates; requires a query-based total scope and a start date</li>
+              <li><strong>Plot Actual Throughput</strong> — shows cumulative completed work from issue resolved dates; requires automatically calculated historical throughput and a start date</li>
+              <li>Both overlays use the configured start date to anchor where the lines begin on the chart</li>
             </ul>
           </article>
         </div>
@@ -104,19 +112,19 @@
           <article class="card">
             <h3>Scope line</h3>
             <p>
-              The horizontal line shows the full amount of work to complete, either as issue count or story points.
+              The horizontal line shows the full amount of work to complete, either as issue count or story points. When actual scope change is enabled, this line grows over time from issue created dates.
             </p>
           </article>
           <article class="card">
             <h3>Forecast lines</h3>
             <p>
-              The forecast lines show likely progress based on past delivery, using either manual values or recent JQL history.
+              Classic mode shows Best Case, Average Case, and Worst Case lines. Monte Carlo mode shows Optimistic (P25), Likely (P50), and Conservative (P75) percentile lines. When actual throughput is enabled, a separate cumulative completed-work line is also shown.
             </p>
           </article>
           <article class="card">
             <h3>Completion guidance</h3>
             <p>
-              The text under the chart explains when each forecast reaches the scope line and, if set, the projected finish date.
+              The guide beneath the chart names each forecast line's likely completion interval. When a start date is set, each entry also shows a projected finish date in the format <em>N week(s) Weekday dd/mm/yyyy</em>. The guide header shows the start date and forecasting interval used in the calculation.
             </p>
           </article>
         </div>
@@ -128,8 +136,11 @@
           <h2>Things to note</h2>
         </div>
         <ul class="feature-list feature-list--wide">
-          <li>Very broad JQL searches can make the gadget slower.</li>
-          <li>If any of the last three completed intervals has no done work, JQL history cannot produce forecast lines.</li>
+          <li>The gadget does not store historical data between views. Every time the gadget loads it fetches live data from Jira, so the chart always reflects the current state of your issues rather than a point-in-time snapshot.</li>
+          <li>Very broad queries can make the gadget slower because all matching issues are fetched and processed in the browser.</li>
+          <li>If any of the last three completed intervals has no done work, query-based history cannot produce forecast lines.</li>
+          <li>In story-point mode, issues without a Story Points value are counted in the work item total but flagged separately in the scope query preview.</li>
+          <li>Actual scope change and actual throughput overlays both require a query-based total scope (JQL or saved filter) and a configured start date.</li>
           <li>Projected finish dates use the viewer's local timezone and a five-day working week.</li>
           <li>Validation messages appear only after the first save attempt.</li>
         </ul>
@@ -163,15 +174,23 @@
               src="assets/screenshots/forecast-data-configuration.png"
               alt="Screenshot showing the Forecast Data section of the gadget configuration form."
             >
-            <figcaption>Forecast Data sets scope, chooses the history source, and shows the JQL-based preview.</figcaption>
+            <figcaption>Forecast Data sets scope, chooses the history source, and shows the scope query preview.</figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img
+              class="shot-card__image"
+              src="assets/screenshots/actuals-overlay-configuration.png"
+              alt="Screenshot showing the Actuals Overlay section of the gadget configuration form."
+            >
+            <figcaption>Actuals Overlay enables optional lines that plot real scope growth and completed work from the configured start date.</figcaption>
           </figure>
           <figure class="shot-card">
             <img
               class="shot-card__image"
               src="assets/screenshots/jql-history-preview.png"
-              alt="Screenshot showing the JQL history preview area."
+              alt="Screenshot showing the scope query preview area."
             >
-            <figcaption>The JQL preview shows what the search found and which recent intervals will feed the forecast.</figcaption>
+            <figcaption>The scope query preview shows what the search found and which recent intervals will feed the forecast.</figcaption>
           </figure>
           <figure class="shot-card">
             <img
@@ -182,6 +201,54 @@
             <figcaption>The finished chart shows the scope line, forecast paths, and finish guidance.</figcaption>
           </figure>
         </div>
+      </section>
+
+      <section class="section section--highlight" id="get-help">
+        <div class="section__heading">
+          <p class="eyebrow">Support</p>
+          <h2>Get help</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Report a bug</h3>
+            <p>
+              Found something that does not work as expected? Raise a bug report so we can investigate and fix it.
+            </p>
+            <a
+              class="button button--primary"
+              href="https://github.com/Cprime-Artificial-Intelligence/burn-up-forecasts-userguide/issues/new?labels=bug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Raise a bug report</a>
+          </article>
+          <article class="card">
+            <h3>Suggest an enhancement</h3>
+            <p>
+              Have an idea for a new feature or an improvement to how the gadget works? We would love to hear it.
+            </p>
+            <a
+              class="button button--secondary"
+              href="https://github.com/Cprime-Artificial-Intelligence/burn-up-forecasts-userguide/issues/new?labels=enhancement"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Suggest an enhancement</a>
+          </article>
+          <article class="card">
+            <h3>Ask a question</h3>
+            <p>
+              Not sure how a feature works or how to configure it? Raise a question and we will get back to you.
+            </p>
+            <a
+              class="button button--secondary"
+              href="https://github.com/Cprime-Artificial-Intelligence/burn-up-forecasts-userguide/issues/new?labels=question"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Ask a question</a>
+          </article>
+        </div>
+        <p class="supporting-note">
+          You can also <a href="https://github.com/Cprime-Artificial-Intelligence/burn-up-forecasts-userguide/issues" target="_blank" rel="noopener noreferrer">browse all open issues</a> to see if your question or bug has already been reported.
+        </p>
       </section>
     </main>
   </body>

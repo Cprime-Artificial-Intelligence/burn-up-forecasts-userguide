@@ -125,7 +125,7 @@ h1 {
 h2 {
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
   font-size: clamp(2.4rem, 5vw, 4.4rem);
-  max-width: 25ch;
+  max-width: 12ch;
   letter-spacing: -0.035em;
 }
 
