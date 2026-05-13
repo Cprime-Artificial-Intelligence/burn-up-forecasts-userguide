@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- white background with subtle border -->
+  <rect width="32" height="32" rx="4" fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+  <!-- total scope line (blue) - flat high -->
+  <line x1="3" y1="8" x2="29" y2="8" stroke="#3182CE" stroke-width="2" stroke-linecap="round"/>
+  <!-- scope line (red) - rises to mid -->
+  <line x1="3" y1="29" x2="29" y2="14" stroke="#E53E3E" stroke-width="2" stroke-dasharray="2.5,2" stroke-linecap="round"/>
+  <!-- completed work line (green) - crosses total scope -->
+  <line x1="3" y1="29" x2="29" y2="5" stroke="#38A169" stroke-width="2" stroke-dasharray="2.5,2" stroke-linecap="round"/>
+  <!-- forecast line (orange) - projected continuation -->
+  <line x1="3" y1="29" x2="29" y2="10" stroke="#DD6B20" stroke-width="2" stroke-dasharray="2.5,2" stroke-linecap="round"/>
+</svg>
