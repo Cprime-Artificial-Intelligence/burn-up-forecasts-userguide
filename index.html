@@ -48,7 +48,7 @@
           <article class="card">
             <h3>Flexible inputs</h3>
             <p>
-              Scope and past delivery can come from manual values, a typed JQL query, or a saved Jira filter. Measure work by issue count or story points.
+              Scope and past delivery can come from manual values, a typed JQL query, or a saved Jira filter. Measure work by work item count or story points.
             </p>
           </article>
         </div>
@@ -80,7 +80,7 @@
               <li>Text shown above the chart</li>
               <li>Optional start date for projected finish dates and actuals overlays</li>
               <li>Forecast Method: Classic (Best, Average, and Worst Case) or Monte Carlo</li>
-              <li>Measure work by issue count or story points</li>
+              <li>Measure work by work item count or story points</li>
               <li>Choose how many intervals to show and how long each one is</li>
             </ul>
           </article>
@@ -96,8 +96,8 @@
           <article class="panel">
             <h3>Actuals Overlay</h3>
             <ul class="feature-list">
-              <li><strong>Plot Actual Scope</strong> — shows cumulative scope growth from issue created dates; requires a query-based total scope and a start date</li>
-              <li><strong>Plot Actual Throughput</strong> — shows cumulative completed work from issue resolved dates; requires automatically calculated historical throughput and a start date</li>
+              <li><strong>Plot Actual Scope</strong> — shows cumulative scope growth from work item created dates; requires a query-based total scope and a start date</li>
+              <li><strong>Plot Actual Throughput</strong> — shows cumulative completed work from work item resolved dates; requires automatically calculated historical throughput and a start date</li>
               <li>Both overlays use the configured start date to anchor where the lines begin on the chart</li>
             </ul>
           </article>
@@ -113,7 +113,7 @@
           <article class="card">
             <h3>Scope line</h3>
             <p>
-              The horizontal line shows the full amount of work to complete, either as issue count or story points. When actual scope change is enabled, this line grows over time from issue created dates.
+              The horizontal line shows the full amount of work to complete, either as work item count or story points. When actual scope change is enabled, this line grows over time from work item created dates.
             </p>
           </article>
           <article class="card">
@@ -137,10 +137,10 @@
           <h2>Things to note</h2>
         </div>
         <ul class="feature-list feature-list--wide">
-          <li>The gadget does not store historical data between views. Every time the gadget loads it fetches live data from Jira, so the chart always reflects the current state of your issues rather than a point-in-time snapshot.</li>
-          <li>Very broad queries can make the gadget slower because all matching issues are fetched and processed in the browser.</li>
+          <li>The gadget does not store historical data between views. Every time the gadget loads it fetches live data from Jira, so the chart always reflects the current state of your work items rather than a point-in-time snapshot.</li>
+          <li>Very broad queries can make the gadget slower because all matching work items are fetched and processed in the browser.</li>
           <li>If any of the last three completed intervals has no done work, query-based history cannot produce forecast lines.</li>
-          <li>In story-point mode, issues without a Story Points value are counted in the work item total but flagged separately in the scope query preview.</li>
+          <li>In story-point mode, work items without a Story Points value are counted in the work item total but flagged separately in the scope query preview.</li>
           <li>Actual scope change and actual throughput overlays both require a query-based total scope (JQL or saved filter) and a configured start date.</li>
           <li>Projected finish dates use the viewer's local timezone and a five-day working week.</li>
           <li>Validation messages appear only after the first save attempt.</li>
