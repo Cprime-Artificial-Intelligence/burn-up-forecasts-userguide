@@ -71,7 +71,7 @@
       <section class="section">
         <div class="section__heading">
           <p class="eyebrow">Configuration</p>
-          <h2>Use three sections to set up the gadget</h2>
+          <h2>Use five sections to set up the gadget</h2>
         </div>
         <div class="two-column">
           <article class="panel">
@@ -101,6 +101,22 @@
               <li>Both overlays use the configured start date to anchor where the lines begin on the chart</li>
             </ul>
           </article>
+          <article class="panel">
+            <h3>Scope Change Scenario</h3>
+            <ul class="feature-list">
+              <li>Optional <strong>Scope Change (%)</strong> field accepts a positive or negative whole number</li>
+              <li>The scenario always starts from your Total Scope value</li>
+              <li>Leave it blank or enter <strong>0</strong> to turn the scenario line off</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Financial Configuration</h3>
+            <ul class="feature-list">
+              <li><strong>Currency</strong> and <strong>Cost per Interval</strong> are both required to save</li>
+              <li>Cost per Interval must be a whole number greater than <strong>0</strong> (no decimals)</li>
+              <li>Supported currencies: USD ($), AUD (A$), NZD (NZ$), GBP (&pound;), YEN (&yen;), YUAN (CN&yen;), EURO (&euro;)</li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -111,9 +127,9 @@
         </div>
         <div class="card-grid">
           <article class="card">
-            <h3>Scope line</h3>
+            <h3>Scope and scenario lines</h3>
             <p>
-              The horizontal line shows the full amount of work to complete, either as work item count or story points. When actual scope change is enabled, this line grows over time from work item created dates.
+              The blue Total Scope line shows the full amount of work to complete, either as work item count or story points. When a scope-change scenario is configured, a lighter blue scenario line is added based on the configured percentage. When actual scope change is enabled, the Total Scope line grows over time from work item created dates.
             </p>
           </article>
           <article class="card">
@@ -125,7 +141,7 @@
           <article class="card">
             <h3>Completion guidance</h3>
             <p>
-              The guide beneath the chart names each forecast line's likely completion interval. When a start date is set, each entry also shows a projected finish date in the format <em>N week(s) Weekday dd/mm/yyyy</em>. The guide header shows the start date and forecasting interval used in the calculation.
+              The guide beneath the chart names each forecast line's likely completion interval. When financial configuration is set, each forecast option also shows projected cost using your selected currency and interval cost. For beyond-range outcomes, the cost is shown as <em>Beyond &lt;symbol&gt;Y</em>. When a scenario is active, the guide also shows the signed scope change value. When a start date is set, each entry also shows a projected finish date in the format <em>N week(s) Weekday dd/mm/yyyy</em>. The guide header shows the start date and forecasting interval used in the calculation.
             </p>
           </article>
         </div>
@@ -142,6 +158,8 @@
           <li>If any of the last three completed intervals has no done work, query-based history cannot produce forecast lines.</li>
           <li>In story-point mode, work items without a Story Points value are counted in the work item total but flagged separately in the scope query preview.</li>
           <li>Actual scope change and actual throughput overlays both require a query-based total scope (JQL or saved filter) and a configured start date.</li>
+          <li>Financial guidance appears only when both Currency and Cost per Interval are configured.</li>
+          <li>Cost per Interval must be a whole number greater than 0. Decimal values are rejected.</li>
           <li>Projected finish dates use the viewer's local timezone and a five-day working week.</li>
           <li>Validation messages appear only after the first save attempt.</li>
         </ul>
